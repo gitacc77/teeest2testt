@@ -39,15 +39,15 @@ class CryptoAnalyzer {
                 'analyzeButton': 'شروع تحلیل هوشمند',
                 'resultsTitle': 'نتایج تحلیل',
                 'loadingText': 'در حال دریافت داده‌های لحظه‌ای...',
-                'cryptoInfoTitle': 'اطلاعات ارز (لحظه‌ای)',
-                'summaryTitle': 'خلاصه تحلیل',
-                'liveChartTitle': 'نمودار زنده',
-                'indicatorsTitle': 'شاخص‌های تکنیکال (محاسبه شده)',
-                'levelsTitle': 'سطوح حمایت و مقاومت',
-                'volumeProfileTitle': 'پروفایل حجم',
-                'fibonacciTitle': 'سطوح بازگشت فیبوناچی',
-                'recommendationTitle': 'پیشنهاد معاملاتی',
-                'fullAnalysisTitle': 'تحلیل کامل هوش مصنوعی',
+                'cryptoInfoTitle': '💎 اطلاعات ارز (لحظه‌ای)',
+                'summaryTitle': '🔍 خلاصه تحلیل',
+                'liveChartTitle': '👁‍🗨 نمودار زنده',
+                'indicatorsTitle': '🧮 شاخص‌های تکنیکال (محاسبه شده)',
+                'levelsTitle': '🎯 سطوح حمایت و مقاومت',
+                'volumeProfileTitle': '📊 پروفایل حجم',
+                'fibonacciTitle': '🌀 سطوح بازگشت فیبوناچی',
+                'recommendationTitle': '🎰 پیشنهاد معاملاتی',
+                'fullAnalysisTitle': '🤖 تحلیل کامل هوش مصنوعی',
                 'copyButton': 'کپی نتایج',
                 'downloadButton': 'دانلود PDF',
                 'shareButton': 'اشتراک گذاری'
@@ -67,15 +67,15 @@ class CryptoAnalyzer {
                 'analyzeButton': 'Start Smart Analysis',
                 'resultsTitle': 'Analysis Results',
                 'loadingText': 'Fetching real-time data...',
-                'cryptoInfoTitle': 'Currency Info (Live)',
-                'summaryTitle': 'Analysis Summary',
-                'liveChartTitle': 'Live Chart',
-                'indicatorsTitle': 'Technical Indicators (Calculated)',
-                'levelsTitle': 'Support & Resistance Levels',
-                'volumeProfileTitle': 'Volume Profile',
-                'fibonacciTitle': 'Fibonacci Retracement Levels',
-                'recommendationTitle': 'Trading Recommendation',
-                'fullAnalysisTitle': 'Full AI Analysis',
+                'cryptoInfoTitle': '💎 Currency Info (Live)',
+                'summaryTitle': '🔎 Analysis Summary',
+                'liveChartTitle': '👁‍🗨 Live Chart',
+                'indicatorsTitle': '🧮 Technical Indicators (Calculated)',
+                'levelsTitle': '🎯 Support & Resistance Levels',
+                'volumeProfileTitle': '📊 Volume Profile',
+                'fibonacciTitle': '🌀 Fibonacci Retracement Levels',
+                'recommendationTitle': '🎰 Trading Recommendation',
+                'fullAnalysisTitle': '🤖 Full AI Analysis',
                 'copyButton': 'Copy Results',
                 'downloadButton': 'Download PDF',
                 'shareButton': 'Share'
@@ -1717,11 +1717,11 @@ class CryptoAnalyzer {
             <div class="fibonacci-summary">
                 <div class="fibonacci-range">
                     <div class="fib-range-item">
-                        <span class="fib-label">${this.currentLanguage === 'fa' ? 'بالاترین قیمت' : 'High Price'}</span>
+                        <span class="fib-label">${this.currentLanguage === 'fa' ? 'بالاترین قیمت 🟢' : 'High Price'}</span>
                         <span class="fib-value">$${this.formatPrice(fibonacci.high, this.cryptoInfo.symbol)}</span>
                     </div>
                     <div class="fib-range-item">
-                        <span class="fib-label">${this.currentLanguage === 'fa' ? 'پایین‌ترین قیمت' : 'Low Price'}</span>
+                        <span class="fib-label">${this.currentLanguage === 'fa' ? 'پایین‌ترین قیمت 🔴' : 'Low Price'}</span>
                         <span class="fib-value">$${this.formatPrice(fibonacci.low, this.cryptoInfo.symbol)}</span>
                     </div>
                 </div>
