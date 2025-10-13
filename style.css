@@ -147,7 +147,7 @@ body[dir="ltr"] .action-buttons {
 .main-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 30px;
+    gap: 20px;
     align-items: start;
 }
 
@@ -300,7 +300,7 @@ body[dir="ltr"] .action-buttons {
 .full-analysis-card {
     background: #f8f9fa;
     border-radius: 37px;
-    padding: 15px;
+    padding: 20px 15px;
     border-right: 4px solid #667eea;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
@@ -689,7 +689,7 @@ body[dir="ltr"] .full-analysis-card {
     font-size: 0.85rem;
     padding: 2px 6px;
     border-radius: 4px;
-    background-color: #f0f0f0;
+    background-color: #67f9ea4a;
     color: #666;
 }
 
@@ -778,7 +778,7 @@ body[dir="ltr"] .volume-profile-card {
 
 .volume-level-item .level-label {
     font-size: 0.9rem;
-    color: #666;
+    color: #2a4ed5;
     margin-bottom: 5px;
 }
 
@@ -1067,18 +1067,18 @@ body[dir="ltr"] .fibonacci-card {
 
 /* استایل‌های آیکون‌های ارزهای دیجیتال */
 .crypto-icon {
-    width: 30px !important;
-    height: 30px !important;
-    margin-right: 3px !important;
-    border-radius: 10% !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 2px !important;
+    border-radius: 50% !important;
     vertical-align: middle !important;
 }
 
 .crypto-icon-selection {
-    width: 30px !important;
-    height: 30px !important;
-    margin-right: 3px !important;
-    border-radius: 10% !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 2px !important;
+    border-radius: 50% !important;
     vertical-align: middle !important;
 }
 
@@ -1122,27 +1122,27 @@ body[dir="rtl"] .select2-container--default .select2-selection--single .select2-
 body[dir="rtl"] .crypto-icon,
 body[dir="rtl"] .ai-icon {
     margin-left: 0 !important;
-    margin-right: 3px !important;
+    margin-right: 2px !important;
 }
 
 body[dir="rtl"] .crypto-icon-selection,
 body[dir="rtl"] .ai-icon-selection {
     margin-left: 0 !important;
-    margin-right: 3px !important;
+    margin-right: 2px !important;
 }
 
 /* بهبود ریسپانسیو */
 @media (max-width: 768px) {
     .crypto-icon,
     .ai-icon {
-        width: 30px !important;
-        height: 30px !important;
+        width: 35px !important;
+        height: 35px !important;
     }
     
     .crypto-icon-selection,
     .ai-icon-selection {
-        width: 30px !important;
-        height: 30px !important;
+        width: 35px !important;
+        height: 35px !important;
     }
 
     .select2-dropdown,
@@ -1302,6 +1302,3 @@ body[dir="rtl"] .alterday-text {
     direction: ltr;
 
 }
-
-
-
