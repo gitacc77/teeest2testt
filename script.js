@@ -2389,10 +2389,97 @@ getGeneralAnalysis(cryptoData) {
         });
     }
 
-    downloadPDF() {
-        alert(this.currentLanguage === 'fa' ? 
-            'در نسخه نمایشی فعال نیست' : 
-            'Not available in demo version');
+    async downloadPDF() {
+        try {
+            // نمایش پیام در حال پردازش
+            this.updateStatus(this.currentLanguage === 'fa' ? 
+                'در حال آماده‌سازی PDF...' : 
+                'Preparing PDF...');
+            
+            // مخفی کردن دکمه‌های عملیاتی برای نمایش بهتر در PDF
+            const actionButtons = document.querySelector('.action-buttons');
+            const originalDisplay = actionButtons.style.display;
+            actionButtons.style.display = 'none';
+            
+            // اضافه کردن هدر به نتایج برای نمایش بهتر در PDF
+            const resultsPanel = document.getElementById('resultsPanel');
+            const originalContent = resultsPanel.innerHTML;
+            
+            // ایجاد هدر برای PDF
+            const pdfHeader = document.createElement('div');
+            pdfHeader.className = 'pdf-header';
+            pdfHeader.innerHTML = `
+                <div style="text-align: center; margin-bottom: 20px; padding: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;">
+                    <h1 style="margin: 0; font-size: 1.8rem;">${this.translations[this.currentLanguage]['title']}</h1>
+                    <p style="margin: 5px 0 0 0; font-size: 1rem;">${this.translations[this.currentLanguage]['subtitle']}</p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9rem;">${this.cryptoInfo.name} (${this.cryptoInfo.symbol}) - ${new Date().toLocaleDateString()}</p>
+                </div>
+            `;
+            
+            resultsPanel.insertBefore(pdfHeader, resultsPanel.firstChild);
+            
+            // صبر برای رندر کامل محتوا
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            // گرفتن عکس از محتوای نتایج
+            const canvas = await html2canvas(resultsPanel, {
+                scale: 2, // افزایش کیفیت تصویر
+                useCORS: true, // اجازه بارگذاری تصاویر از دامنه‌های دیگر
+                allowTaint: true,
+                logging: false,
+                backgroundColor: '#f8f9fa'
+            });
+            
+            // بازگرداندن دکمه‌های عملیاتی
+            actionButtons.style.display = originalDisplay;
+            
+            // حذف هدر اضافه شده
+            resultsPanel.removeChild(pdfHeader);
+            
+            // ایجاد PDF
+            const { jsPDF } = window.jspdf;
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            
+            // محاسبه ابعاد تصویر برای تناسب با صفحه A4
+            const imgWidth = 210; // عرض صفحه A4 بر حسب میلی‌متر
+            const pageHeight = 295; // ارتفاع صفحه A4 بر حسب میلی‌متر
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            let heightLeft = imgHeight;
+            let position = 0;
+            
+            // اضافه کردن تصویر به PDF
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+            
+            // اگر تصویر بزرگتر از یک صفحه باشد، صفحات اضافی ایجاد کن
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+            
+            // ذخیره فایل PDF
+            const fileName = `${this.cryptoInfo.symbol}_analysis_${new Date().toISOString().slice(0, 10)}.pdf`;
+            pdf.save(fileName);
+            
+            // نمایش پیام موفقیت
+            this.updateStatus(this.currentLanguage === 'fa' ? 
+                'فایل PDF با موفقیت دانلود شد' : 
+                'PDF downloaded successfully');
+            
+            // بازگرداندن وضعیت به حالت عادی بعد از 1 ثانیه
+            setTimeout(() => {
+                document.getElementById('analysisStatus').style.display = 'none';
+            }, 1000);
+            
+        } catch (error) {
+            console.error('Error generating PDF:', error);
+            this.showError(this.currentLanguage === 'fa' ? 
+                'خطا در ایجاد فایل PDF: ' + error.message : 
+                'Error creating PDF file: ' + error.message);
+        }
     }
 
     shareResults() {
