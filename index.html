@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحلیل هوشمند ارزهای دیجیتال | Crypto Analysis Assistant</title>
+    <title>Crypto Analysis Assistant</title>
+    <link rel="icon" type="image/x-icon" href="icons\fav.ico">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
@@ -12,6 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -70,7 +73,6 @@
                         <option value="meta-llama/llama-4-maverick:free" data-icon="icons\ai\meta.png">Llama-4-Maverick (free)</option>
                         <option value="meta-llama/llama-4-scout:free" data-icon="icons\ai\meta.png">Llama-4-Scout (free)</option>
                         <option value="nousresearch/deephermes-3-llama-3-8b-preview:free" data-icon="icons\ai\deephermes.png">DeepHermes3-Llama3-8B (free)</option>
-                        <option value="tencent/hunyuan-a13b-instruct:free" data-icon="icons\ai\tencent.png">Tencent-Hunyuan-A13B (free)</option>
                         <option value="nvidia/nemotron-nano-9b-v2:free" data-icon="icons\ai\nvidia.png">NVIDIA-Nemotron-9B EN (free)</option>
                         <option value="cognitivecomputations/dolphin-mistral-24b-venice-edition:free" data-icon="icons\ai\venice.png">Venice-Uncensored EN (free)</option>
                         <option value="agentica-org/deepcoder-14b-preview:free" data-icon="icons\ai\agentica.png">Agentica-14B EN (free)</option>
@@ -262,7 +264,7 @@
                         <div class="full-analysis-content" id="fullAnalysisContent"></div>
                     </div>
 
-                    <!-- دکمه‌ های عملی -->
+                    <!-- دکمه‌های عملی -->
                     <div class="action-buttons">
                         <button id="copyBtn" class="action-btn">
                             <i class="fas fa-copy"></i> <span data-translate="copyButton">کپی نتایج</span>
@@ -292,6 +294,4 @@
     </footer>
     <script src="script.js"></script>
 </body>
-
 </html>
-
