@@ -414,7 +414,21 @@ class CryptoAnalyzer {
             linea: { symbol: 'LINEA', name: this.currentLanguage === 'fa' ? 'لینیا' : 'Linea', coingeckoId: 'linea', coinpaprikaId: 'linea-linea', tradingViewSymbol: 'BINANCE:LINEAUSDT' },
             mitosis: { symbol: 'MITO', name: this.currentLanguage === 'fa' ? 'میتوسیس' : 'Mitosis', coingeckoId: 'mitosis', coinpaprikaId: 'mito-mitosis', tradingViewSymbol: 'BINANCE:MITOUSDT' },
             'pyth-network': { symbol: 'PYTH', name: this.currentLanguage === 'fa' ? 'پایت نتورک' : 'Pyth Network', coingeckoId: 'pyth-network', coinpaprikaId: 'pyth-pyth-network', tradingViewSymbol: 'BINANCE:PYTHUSDT' },
-            'starknet': { symbol: 'STRK', name: this.currentLanguage === 'fa' ? 'استارک نت' : 'Starknet', coingeckoId: 'starknet', coinpaprikaId: 'strk-starknet', tradingViewSymbol: 'BINANCE:STRKUSDT' },
+            starknet: { symbol: 'STRK', name: this.currentLanguage === 'fa' ? 'استارک نت' : 'Starknet', coingeckoId: 'starknet', coinpaprikaId: 'strk-starknet', tradingViewSymbol: 'BINANCE:STRKUSDT' },
+            avantis: { symbol: 'AVNT', name: this.currentLanguage === 'fa' ? 'آوانتیس' : 'Avantis', coingeckoId: 'avantis', coinpaprikaId: 'avantis', tradingViewSymbol: 'OKX:AVNTUSDT' },
+            'smooth-love-potion': { symbol: 'SLP', name: this.currentLanguage === 'fa' ? 'اسموت لاو پوشن' : 'Smooth Love Potion', coingeckoId: 'smooth-love-potion', coinpaprikaId: 'slp-smooth-love-potion', tradingViewSymbol: 'OKX:SLPUSDT' },
+            fasttoken: { symbol: 'FTN', name: this.currentLanguage === 'fa' ? 'فست توکن' : 'Fasttoken', coingeckoId: 'fasttoken', coinpaprikaId: 'ftn-fasttoken', tradingViewSymbol: 'MEXC:FTNUSDT' },
+            dash: { symbol: 'DASH', name: this.currentLanguage === 'fa' ? 'دش' : 'Dash', coingeckoId: 'dash', coinpaprikaId: 'dash-dash', tradingViewSymbol: 'BINANCE:DASHUSDT' },
+            'reserve-rights-token': { symbol: 'RSR', name: this.currentLanguage === 'fa' ? 'ریورس رایت' : 'Reserve Rights', coingeckoId: 'reserve-rights-token', coinpaprikaId: 'rsr-reserve-rights', tradingViewSymbol: 'KUCOIN:RSRUSDT' },
+            digibyte: { symbol: 'DGB', name: this.currentLanguage === 'fa' ? 'دیجی بایت' : 'DigiByte', coingeckoId: 'digibyte', coinpaprikaId: 'dgb-digibyte', tradingViewSymbol: 'KUCOIN:DGBUSDT' },
+            audius: { symbol: 'AUDIO', name: this.currentLanguage === 'fa' ? 'آدیوس' : 'Audius', coingeckoId: 'audius', coinpaprikaId: 'audio-audius', tradingViewSymbol: 'KUCOIN:AUDIOUSDT' },
+            'x-empire': { symbol: 'X', name: this.currentLanguage === 'fa' ? 'ایکس امپایر' : 'X Empire', coingeckoId: 'x-empire', coinpaprikaId: 'x-x-empire', tradingViewSymbol: 'KUCOIN:XUSDT' },
+            kava: { symbol: 'KAVA', name: this.currentLanguage === 'fa' ? 'کاوا' : 'Kava', coingeckoId: 'kava', coinpaprikaId: 'kava-kava', tradingViewSymbol: 'BINANCE:KAVAUSDT' },
+            stepn: { symbol: 'GMT', name: this.currentLanguage === 'fa' ? 'استپن' : 'Stepn', coingeckoId: 'stepn', coinpaprikaId: 'gmt-gmt', tradingViewSymbol: 'OKX:GMTUSDT' },
+            dogwifhat: { symbol: 'WIF', name: this.currentLanguage === 'fa' ? 'داگ ویف هت' : 'dogwifhat', coingeckoId: 'dogwifhat', coinpaprikaId: 'wif-dogwifhat', tradingViewSymbol: 'OKX:WIFUSDT' },
+            'sei-network': { symbol: 'SEI', name: this.currentLanguage === 'fa' ? 'سی نتورک' : 'Sei', coingeckoId: 'sei-network', coinpaprikaId: 'sei-sei', tradingViewSymbol: 'BINANCE:SEIUSDT' },
+            syrup: { symbol: 'SYRUP', name: this.currentLanguage === 'fa' ? 'سیراپ' : 'Syrup', coingeckoId: 'syrup', coinpaprikaId: 'syrup-syrup-token', tradingViewSymbol: 'BINANCE:SYRUPUSDT' },
+            altlayer: { symbol: 'ALT', name: this.currentLanguage === 'fa' ? 'آلت لیر' : 'AltLayer', coingeckoId: 'altlayer', coinpaprikaId: 'alt-altlayer', tradingViewSymbol: 'KUCOIN:KALTUSDT' },
         };
 
         this.cryptoInfo = cryptoInfoDatabase[this.selectedCrypto] || cryptoInfoDatabase.bitcoin;
