@@ -1027,6 +1027,81 @@ body[dir="ltr"] .fibonacci-card {
     }
 }
 
+/* استایل‌های مربوط به هدر PDF */
+.pdf-header {
+    page-break-after: avoid;
+    margin-bottom: 20px;
+}
+
+/* استایل‌های بهینه‌سازی برای چاپ و PDF */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .main-content {
+        display: block !important;
+    }
+    
+    .settings-panel {
+        display: none !important;
+    }
+    
+    .results-panel {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        page-break-inside: avoid;
+    }
+    
+    .action-buttons {
+        display: none !important;
+    }
+    
+    .crypto-info-card,
+    .summary-card,
+    .live-chart-card,
+    .indicators-card,
+    .levels-card,
+    .volume-profile-card,
+    .fibonacci-card,
+    .recommendation-card,
+    .full-analysis-card {
+        page-break-inside: avoid;
+        border: 1px solid #ddd !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .live-chart-container {
+        height: 300px !important;
+        overflow: hidden !important;
+    }
+    
+    .indicators-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .crypto-info-content {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .levels-content {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* استایل برای بهبود نمایش در حالت چاپ */
+.pdf-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 10px;
+    color: #888;
+    padding: 5px 0;
+}
+
 /* استایل‌های Select2 */
 .select2-container--default .select2-selection--single {
     height: 50px !important;
