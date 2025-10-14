@@ -1731,11 +1731,11 @@ class CryptoAnalyzer {
             <div class="fibonacci-summary">
                 <div class="fibonacci-range">
                     <div class="fib-range-item">
-                        <span class="fib-label">${this.currentLanguage === 'fa' ? 'بالاترین قیمت 🟢' : 'High Price'}</span>
+                        <span class="fib-label">${this.currentLanguage === 'fa' ? '🟢 بیشترین قیمت' : 'High Price'}</span>
                         <span class="fib-value">$${this.formatPrice(fibonacci.high, this.cryptoInfo.symbol)}</span>
                     </div>
                     <div class="fib-range-item">
-                        <span class="fib-label">${this.currentLanguage === 'fa' ? 'پایین‌ترین قیمت 🔴' : 'Low Price'}</span>
+                        <span class="fib-label">${this.currentLanguage === 'fa' ? '🔴 کمترین قیمت' : 'Low Price'}</span>
                         <span class="fib-value">$${this.formatPrice(fibonacci.low, this.cryptoInfo.symbol)}</span>
                     </div>
                 </div>
