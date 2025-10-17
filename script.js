@@ -50,7 +50,9 @@ class CryptoAnalyzer {
                 'fullAnalysisTitle': '🤖 تحلیل کامل هوش مصنوعی',
                 'copyButton': 'کپی نتایج',
                 'downloadButton': 'دانلود PDF',
-                'shareButton': 'اشتراک گذاری'
+                'shareButton': 'اشتراک گذاری',
+                'newsTitle': '📰 ترند های بازار کریپتو',
+                'loadingNewsText': 'در حال دریافت آخرین ترندها...',
             },
             'en': {
                 'title': 'Crypto Analysis Assistant',
@@ -78,7 +80,9 @@ class CryptoAnalyzer {
                 'fullAnalysisTitle': '🤖 Full AI Analysis',
                 'copyButton': 'Copy Results',
                 'downloadButton': 'Download PDF',
-                'shareButton': 'Share'
+                'shareButton': 'Share',
+                'newsTitle': '📰 Crypto Market Trends',
+                'loadingNewsText': 'Fetching latest Trends...',
             }
         };
     }
@@ -299,6 +303,29 @@ class CryptoAnalyzer {
             
             // محاسبه شاخص‌های تکنیکال
             await this.calculateTechnicalIndicators();
+            
+            // به‌روزرسانی وضعیت
+            this.updateStatus(this.currentLanguage === 'fa' ? 
+                'در حال دریافت آخرین اخبار...' : 
+                'Fetching latest news...');
+            
+            // دریافت اخبار ارزهای دیجیتال
+            try {
+                const news = await this.fetchCryptoNews();
+                this.displayNews(news);
+            } catch (newsError) {
+                console.error('Error fetching news:', newsError);
+                // نمایش پیام خطا در بخش اخبار
+                const newsContent = document.getElementById('newsContent');
+                if (newsContent) {
+                    newsContent.innerHTML = `
+                        <div class="news-error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>${this.currentLanguage === 'fa' ? 'خطا در دریافت اخبار' : 'Error fetching news'}</p>
+                        </div>
+                    `;
+                }
+            }
             
             // به‌روزرسانی وضعیت
             this.updateStatus(this.currentLanguage === 'fa' ? 
@@ -1804,6 +1831,93 @@ class CryptoAnalyzer {
         return analysis;
     }
 
+    // تابع جدید برای دریافت اخبار از CoinGecko API
+    async fetchCryptoNews() {
+        try {
+            // استفاده از CoinGecko API برای دریافت اخبار ارزهای دیجیتال
+            // این API نیازی به کلید API ندارد
+            const response = await fetch('https://api.coingecko.com/api/v3/search/trending');
+            
+            if (!response.ok) {
+                throw new Error('خطا در دریافت اخبار');
+            }
+            
+            const data = await response.json();
+            
+            // تبدیل داده‌های ترند به فرمت خبری
+            const news = data.coins.map(coin => ({
+                title: `🔥 ${coin.item.name} (${coin.item.symbol}) در ترند`,
+                source: 'CoinGecko',
+                date: new Date().toISOString(),
+                description: `${coin.item.name} با قیمت $${coin.item.price_btc} بیت‌کوین در لیست ترند‌های امروز قرار دارد. رتبه: ${coin.item.market_cap_rank}`,
+                link: `https://www.coingecko.com/en/coins/${coin.item.id}`,
+                important: true
+            }));
+            
+            // اگر نتایج وجود داشت، 10 مورد اول را برگردان
+            if (news && news.length > 0) {
+                return news.slice(0, 10);
+            } else {
+                throw new Error('هیچ خبری یافت نشد');
+            }
+        } catch (error) {
+            console.error('Error fetching news:', error);
+            throw error;
+        }
+    }
+
+    // تابع جدید برای نمایش اخبار در UI
+    displayNews(news) {
+        const newsContent = document.getElementById('newsContent');
+        
+        if (!news || news.length === 0) {
+            newsContent.innerHTML = `
+                <div class="news-error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>${this.currentLanguage === 'fa' ? 'هیچ خبری یافت نشد' : 'No news found'}</p>
+                </div>
+            `;
+            return;
+        }
+        
+        let newsHTML = '';
+        
+        news.forEach(item => {
+            const title = item.title;
+            const source = item.source;
+            const date = new Date(item.date).toLocaleDateString(
+                this.currentLanguage === 'fa' ? 'fa-IR' : 'en-US', 
+                { year: 'numeric', month: 'short', day: 'numeric' }
+            );
+            const description = item.description || '';
+            const link = item.link;
+            const isImportant = item.important;
+            const newsClass = isImportant ? 'news-item important' : 'news-item';
+            
+            newsHTML += `
+                <div class="${newsClass}">
+                    <h4 class="news-title">
+                        ${title}
+                        ${isImportant ? '<i class="fas fa-fire important-fire"></i>' : ''}
+                    </h4>
+                    <div class="news-source">
+                        <i class="fas fa-chart-line"></i> ${this.currentLanguage === 'fa' ? 'منبع: ' : 'Source: '}${source}
+                    </div>
+                    <div class="news-date">
+                        <i class="fas fa-clock"></i> ${date}
+                    </div>
+                    ${description ? `<p class="news-description">${description}</p>` : ''}
+                    <a href="${link}" target="_blank" class="news-link">
+                        ${this.currentLanguage === 'fa' ? 'مشاهده جزئیات' : 'View Details'} 
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            `;
+        });
+        
+        newsContent.innerHTML = newsHTML;
+    }
+
     generatePrompt() {
         const cryptoData = this.cryptoData;
         const cryptoInfo = this.cryptoInfo;
@@ -2130,7 +2244,7 @@ displayLiveChart(cryptoInfo) {
     // استفاده از TradingView widget برای نمودار زنده
     liveChartContainer.innerHTML = `
         <iframe 
-            src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${cryptoInfo.tradingViewSymbol}&interval=240&hidesidetoolbar=1&hidetoptoolbar=1&symboledit=1&saveimage=1&toolbarbg=F1F3F6&studies=[]&hideideas=1&theme=light&style=10&timezone=Etc/UTC&studies_overrides={}&overrides={}&enabled_features=[]&disabled_features=[]&locale=${this.currentLanguage === 'fa' ? 'fa_IR' : 'en'}&utm_source=&utm_medium=widget&utm_campaign=chart&utm_term=${cryptoInfo.tradingViewSymbol}"
+            src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=${cryptoInfo.tradingViewSymbol}&interval=240&hidesidetoolbar=1&hidetoptoolbar=1&symboledit=1&saveimage=1&toolbarbg=F1F3F6&studies=[]&hideideas=1&theme=dark&style=10&timezone=Etc/UTC&studies_overrides={}&overrides={}&enabled_features=[]&disabled_features=[]&locale=${this.currentLanguage === 'fa' ? 'fa_IR' : 'en'}&utm_source=&utm_medium=widget&utm_campaign=chart&utm_term=${cryptoInfo.tradingViewSymbol}"
             frameborder="0"
             allowtransparency="true"
             scrolling="no"
@@ -2503,6 +2617,3 @@ getGeneralAnalysis(cryptoData) {
 document.addEventListener('DOMContentLoaded', () => {
     new CryptoAnalyzer();
 });
-
-
-
