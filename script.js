@@ -1871,7 +1871,7 @@ class CryptoAnalyzer {
 
     توجه: تمام داده‌های فوق لحظه‌ای و واقعی هستند و بر اساس آخرین اطلاعات بازار می‌باشند.
 
-    پاسخ را به زبان فارسی و به صورت ساختاریافته با استفاده از مارک‌داون ارائه دهید. برای عناوین از ### و برای تاکید از ** استفاده کنید. همچنین در نقش یک تحلیلگر تکنیکال حرفه‌ای با 10 سال تجربه در بازار ارزهای دیجیتال، نقاط ورود و خروج مناسب را مشخص کن و یک استراتژی مدیریت ریسک با حد ضرر و حد سود پیشنهاد بده. پاسخ را به‌صورت خلاصه و bullet-point ارائه کن.`;
+    پاسخ را به زبان فارسی و به صورت ساختار یافته با استفاده از مارک‌داون ارائه دهید. برای عناوین از ### و برای تاکید از ** استفاده کنید. همچنین در نقش یک تحلیلگر تکنیکال حرفه‌ای با 10 سال تجربه در بازار ارزهای دیجیتال، نقاط ورود و خروج مناسب را مشخص کن و یک استراتژی مدیریت ریسک با حد ضرر و حد سود پیشنهاد بده.`;
             } else {
                 return `لطفاً یک تحلیل بلند مدت جامع برای ارز دیجیتال ${cryptoInfo.name} (${cryptoInfo.symbol}) ارائه دهید.
 
@@ -1924,7 +1924,7 @@ class CryptoAnalyzer {
 
     توجه: تمام داده‌های فوق لحظه‌ای و واقعی هستند و بر اساس آخرین اطلاعات بازار می‌باشند.
 
-    پاسخ را به زبان فارسی و به صورت ساختاریافته با استفاده از مارک‌داون ارائه دهید. برای عناوین از ### و برای تاکید از ** استفاده کنید. همچنین در نقش یک تحلیلگر تکنیکال حرفه‌ای با 10 سال تجربه در بازار ارزهای دیجیتال، نقاط ورود و خروج مناسب را مشخص کن و یک استراتژی مدیریت ریسک با حد ضرر و حد سود پیشنهاد بده. پاسخ را به‌صورت خلاصه و bullet-point ارائه کن.`;
+    پاسخ را به زبان فارسی و به صورت ساختار یافته با استفاده از مارک‌داون ارائه دهید. برای عناوین از ### و برای تاکید از ** استفاده کنید. همچنین در نقش یک تحلیلگر تکنیکال حرفه‌ای با 10 سال تجربه در بازار ارزهای دیجیتال، نقاط ورود و خروج مناسب را مشخص کن و یک استراتژی مدیریت ریسک با حد ضرر و حد سود پیشنهاد بده.`;
             }
         } else {
             if (this.analysisType === 'short') {
@@ -1971,7 +1971,7 @@ class CryptoAnalyzer {
 
     Note: All data above is real-time and based on the latest market information.
 
-    Respond in English and use structured markdown. Use ### for headings and ** for emphasis. Also, as a professional technical analyst with 10 years of experience in the cryptocurrency market, identify appropriate entry and exit points and suggest a risk management strategy with stop-loss and take-profit limits. Provide the answer in a concise and bullet-point format.`;
+    Respond in English and use structured markdown. Use ### for headings and ** for emphasis. Also, as a professional technical analyst with 10 years of experience in the cryptocurrency market, identify appropriate entry and exit points and recommend a risk management strategy with stop loss and take profit limits.`;
             } else {
                 return `Please provide a comprehensive long-term analysis for the cryptocurrency ${cryptoInfo.name} (${cryptoInfo.symbol}).
 
@@ -2024,7 +2024,7 @@ class CryptoAnalyzer {
 
     Note: All data above is real-time and based on the latest market information.
 
-    Respond in English and use structured markdown. Use ### for headings and ** for emphasis. Also, as a professional technical analyst with 10 years of experience in the cryptocurrency market, identify appropriate entry and exit points and suggest a risk management strategy with stop-loss and take-profit limits. Provide the answer in a concise and bullet-point format.`;
+    Respond in English and use structured markdown. Use ### for headings and ** for emphasis. Also, as a professional technical analyst with 10 years of experience in the cryptocurrency market, identify appropriate entry and exit points and recommend a risk management strategy with stop loss and take profit limits.`;
             }
         }
     }
@@ -2503,5 +2503,6 @@ getGeneralAnalysis(cryptoData) {
 document.addEventListener('DOMContentLoaded', () => {
     new CryptoAnalyzer();
 });
+
 
 
