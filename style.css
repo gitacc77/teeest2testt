@@ -1107,7 +1107,7 @@ body[dir="ltr"] .fibonacci-card {
     background: #f8f9fa;
     border-radius: 37px;
     padding: 15px;
-    border-right: 4px solid #2dcf52f0;
+    border-right: 4px solid #667eea;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     margin-bottom: 20px;
 }
@@ -1152,11 +1152,11 @@ body[dir="ltr"] .news-card {
 .news-item {
     background: white;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 25px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    border-left: 3px solid transparent;
+    border-left: 2px solid transparent;
 }
 
 .news-item:hover {
@@ -1308,8 +1308,8 @@ body[dir="ltr"] .news-card {
 }
 
 .crypto-icon-selection {
-    width: 40px !important;
-    height: 40px !important;
+    width: 35px !important;
+    height: 35px !important;
     margin-right: 2px !important;
     border-radius: 50% !important;
     vertical-align: middle !important;
