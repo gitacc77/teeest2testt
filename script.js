@@ -51,7 +51,7 @@ class CryptoAnalyzer {
                 'copyButton': 'کپی نتایج',
                 'downloadButton': 'دانلود PDF',
                 'shareButton': 'اشتراک گذاری',
-                'newsTitle': '📰 ترند های بازار کریپتو',
+                'newsTitle': '📌 ترند های بازار کریپتو',
                 'loadingNewsText': 'در حال دریافت آخرین ترندها...',
             },
             'en': {
@@ -81,7 +81,7 @@ class CryptoAnalyzer {
                 'copyButton': 'Copy Results',
                 'downloadButton': 'Download PDF',
                 'shareButton': 'Share',
-                'newsTitle': '📰 Crypto Market Trends',
+                'newsTitle': '📌 Crypto Market Trends',
                 'loadingNewsText': 'Fetching latest Trends...',
             }
         };
@@ -456,6 +456,9 @@ class CryptoAnalyzer {
             'sei-network': { symbol: 'SEI', name: this.currentLanguage === 'fa' ? 'سی نتورک' : 'Sei', coingeckoId: 'sei-network', coinpaprikaId: 'sei-sei', tradingViewSymbol: 'BINANCE:SEIUSDT' },
             syrup: { symbol: 'SYRUP', name: this.currentLanguage === 'fa' ? 'سیراپ' : 'Syrup', coingeckoId: 'syrup', coinpaprikaId: 'syrup-syrup-token', tradingViewSymbol: 'BINANCE:SYRUPUSDT' },
             altlayer: { symbol: 'ALT', name: this.currentLanguage === 'fa' ? 'آلت لیر' : 'AltLayer', coingeckoId: 'altlayer', coinpaprikaId: 'alt-altlayer', tradingViewSymbol: 'KUCOIN:KALTUSDT' },
+            mantle: { symbol: 'MNT', name: this.currentLanguage === 'fa' ? 'منتل' : 'Mantle', coingeckoId: 'mantle', coinpaprikaId: 'mnt-mantle', tradingViewSymbol: 'BYBIT:MNTUSDT' },
+            kaspa: { symbol: 'KAS', name: this.currentLanguage === 'fa' ? 'کسپا' : 'Kaspa', coingeckoId: 'kaspa', coinpaprikaId: 'kas-kaspa', tradingViewSymbol: 'MEXC:KASUSDT' },
+            'flare-networks': { symbol: 'FLR', name: this.currentLanguage === 'fa' ? 'فلر' : 'Flare', coingeckoId: 'flare-networks', coinpaprikaId: 'flr-flare-network', tradingViewSymbol: 'OKX:FLRUSDT' },
         };
 
         this.cryptoInfo = cryptoInfoDatabase[this.selectedCrypto] || cryptoInfoDatabase.bitcoin;
